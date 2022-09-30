@@ -1,12 +1,4 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:31807",
-      "sslPort": 44347
-    }
-  },
   "profiles": {
     "nhlstatswebportal_blazor": {
       "commandName": "Project",
@@ -30,8 +22,19 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "NHLSTATS_APPCONFIG_CONNECTIONSTRING": "Endpoint=https://nhlstats-appconfig.azconfig.io;Id=6g5J-l0-s0:jBNpPPeycuQWX+BEjeKY;Secret=n0xrvEUNY6LPzVyGvZ1US/oB0YjvWmr4yLQD4F+8ViU="
+      },
       "publishAllPorts": true,
       "useSSL": true
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:31807",
+      "sslPort": 44347
     }
   }
 }

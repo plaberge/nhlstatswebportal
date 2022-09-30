@@ -1,9 +1,54 @@
 ﻿@page "/"
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
 
-<PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<PageTitle>NHLStats Portal</PageTitle>
 
-Welcome to your new app.
+<h1>The NHLStats Portal</h1>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<p>This website is geared toward providing statistical data on NHL hockey seasons, from 1917 to present.</p>
+<p>Pick a date to see game data from the specified day: 
+    <RadzenDatePicker @bind-Value=@dateValue Change=@OnDateChange Placeholder="Choose a Date" />
+    @code {
+        DateTime? dateValue = DateTime.Today;
+
+        void OnDateChange(DateTime? dateValue)
+        {
+            Console.WriteLine($"Value changed to {dateValue}");
+        }
+    }
+</p>
+
+<p>Specify the name of a player for information on that player: 
+    <RadzenTextBox @bind-Value=@fNameValue Change=@OnFNameChange Placeholder="First Name" />
+    @code {
+        string? fNameValue;  
+
+        void OnFNameChange(string? fNameValue)
+        {
+            ;
+        }
+    }
+
+    <RadzenTextBox @bind-Value=@lNameValue Change=@OnLNameChange Placeholder="Last Name"/>
+    @code {
+        string? lNameValue;
+
+        void OnLNameChange(string? fNameValue)
+        {
+            ;
+        }
+    }
+
+    <RadzenButton Click="OnNameSearchClick" Text="Search by Name" />
+        @code {
+            void OnNameSearchClick()
+            {
+
+            }
+        }
+
+</p>
+
+<!--<SurveyPrompt Title="How is Blazor working for you?" />-->
